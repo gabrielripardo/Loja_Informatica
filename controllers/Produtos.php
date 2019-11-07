@@ -47,6 +47,7 @@ class Produtos extends CI_Controller {
 	public function exibirDetalhe(){		
 		$id = $this->input->get("id");
 		$dt = $this->input->get("dt");
+		//echo $vars;
 
 		 echo 'id: '.$id.' | dt: '.$dt;		
 		// $dt_entrada = (new DateTime("@$dt"))->format('d/m/Y H:i:s');
