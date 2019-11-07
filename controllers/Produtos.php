@@ -44,6 +44,16 @@ class Produtos extends CI_Controller {
 		
 	}
 
+	public function exibirDetalhe(){		
+		$id = $this->input->get("id");
+		$dt = 1566863405;//$this->input->get("dt");
+
+		echo 'id: '.$id.' | dt: '.$dt;		
+		$dt_entrada = (new DateTime("@$dt"))->format('d/m/Y H:i:s');
+		echo 'DT_ENTRADA: '.$dt_entrada;
+		$this->load->view("produtos/detalhe");
+	}
+
 	public function salvar($id){
 		$this->load->model("produtos_model");
 		$this->produtos_model->salvar($id);
