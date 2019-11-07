@@ -15,7 +15,10 @@
                 <th>Ações</th>
             </tr>     
             
-            <?php $DT_ENTRADA = "11/02/2018 00:00:00"; echo $DT_ENTRADA; ?>       
+            <?php $DT_ENTRADA = "26/08/2019 00:00:00"; 
+                echo $DT_ENTRADA.'<br><br>'; 
+                echo strtotime(date("d-m-Y H:i:s ", mktime(23,50,05,8,26,2019)));
+            ?>       
                   
             <?php foreach ($produtos as $produto) : ?>
                
@@ -25,7 +28,7 @@
                     <td><?= $produto['preco']?></td>
                     <td><a href="<?= site_url('produtos/delete/'.$produto['id']); ?>" class="btn btn-danger">Excluir</a></td>                                       
                     <td><a href="<?= site_url('produtos/editar?id='.$produto['id']); ?>" class="btn btn-warning">Editar</a></td>
-                    <td><a href="<?= site_url(); ?>/produtos/exibirDetalhe/?id=<?= $produto['id']?>&dt=<?php echo (new DateTime(str_replace('/', '-', $DT_ENTRADA)))->modify('+2 hour')->getTimestamp(); ?>" class="btn btn-info">Detalhe</a></td>
+                    <td><a href="<?= site_url(); ?>/produtos/exibirDetalhe/?id=<?php echo $produto['id'] .'&dt='. $DT_ENTRADA; ?>" class="btn btn-info">Detalhe</a></td>
                 </tr>
             <?php endforeach ?>
         </table>
